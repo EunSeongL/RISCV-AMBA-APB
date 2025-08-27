@@ -47,7 +47,7 @@ module tb_APB();
         .PRDATA(PRDATA2),
         .PREADY(PREADY2)
     );
-    APB_Slave U_APB_Slave3 (
+    RAM U_APB_RAM (
         .*,
         .PSEL(PSEL3),
         .PRDATA(PRDATA3),
@@ -105,7 +105,17 @@ module tb_APB();
         transfer = 1;
         write = 1;
         addr = 32'h1000_3000; 
-        wdata = 32'd13;
+        wdata = 32'd100;
+        @(posedge PCLK);
+        #1;
+        transfer = 0;
+        wait (ready);
+
+        @(posedge PCLK);
+        #1;
+        transfer = 1;
+        write = 0;
+        addr = 32'h1000_3000; 
         @(posedge PCLK);
         #1;
         transfer = 0;
