@@ -22,7 +22,7 @@ module MCU (
 
     APB_Master U_APB_Master (
         .PCLK       (clk),
-        .PRESET     (reset)
+        .PRESET     (reset),
         .transfer   (transfer),
         .ready      (ready),
         .write      (busWe),
