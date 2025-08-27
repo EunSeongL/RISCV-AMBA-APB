@@ -10,6 +10,8 @@ module MCU (
     logic [31:0] busAddr;
     logic [31:0] busWData;
     logic [31:0] busRData;
+    logic        transfer;
+    logic        ready;
 
     ROM U_ROM (
         .addr(instrMemAddr),
@@ -18,11 +20,14 @@ module MCU (
 
     CPU_RV32I U_RV32I (.*);
 
-    RAM U_RAM (
-        .clk  (clk),
-        .we   (busWe),
-        .addr (busAddr),
-        .wData(busWData),
-        .rData(busRData)
+    APB_Master U_APB_Master (
+        .PCLK       (clk),
+        .PRESET     (reset)
+        .transfer   (transfer),
+        .ready      (ready),
+        .write      (busWe),
+        .addr       (busAddr), 
+        .wdata      (busWData),
+        .rdata      (busRData)
     );
 endmodule

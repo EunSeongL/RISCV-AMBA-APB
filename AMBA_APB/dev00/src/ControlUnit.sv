@@ -13,7 +13,9 @@ module ControlUnit (
     output logic [ 2:0] RFWDSrcMuxSel,
     output logic        branch,
     output logic        jal,
-    output logic        jalr
+    output logic        jalr,
+    output logic        transfer,
+    input  logic        ready
 );
     wire  [6:0] opcode = instrCode[6:0];
     wire  [3:0] operator = {instrCode[30], instrCode[14:12]};
@@ -72,9 +74,9 @@ module ControlUnit (
             J_EXE:  next_state = FETCH;
             JL_EXE: next_state = FETCH;
             S_EXE:  next_state = S_MEM;
-            S_MEM:  next_state = FETCH;
+            S_MEM:  if (ready) next_state = FETCH;
             L_EXE:  next_state = L_MEM;
-            L_MEM:  next_state = L_WB;
+            L_MEM:  if (ready) next_state = FETCH;
             L_WB:   next_state = FETCH;
         endcase
     end
@@ -104,9 +106,15 @@ module ControlUnit (
             J_EXE:  signals = 10'b0_1_0_0_100_0_1_0;
             JL_EXE: signals = 10'b0_1_0_0_100_0_1_1;
             S_EXE:  signals = 10'b0_0_1_0_000_0_0_0;
-            S_MEM:  signals = 10'b0_0_1_1_000_0_0_0;
+            S_MEM:  begin
+                signals = 10'b0_0_1_1_000_0_0_0;
+                transfer = 1;
+            end
             L_EXE:  signals = 10'b0_0_1_0_001_0_0_0;
-            L_MEM:  signals = 10'b0_0_1_0_001_0_0_0;
+            L_MEM:  begin
+                signals = 10'b0_0_1_0_001_0_0_0;
+                transfer = 1;
+            end
             L_WB:   signals = 10'b0_1_1_0_001_0_0_0;
         endcase
     end
