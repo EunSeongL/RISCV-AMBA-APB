@@ -29,29 +29,26 @@ module tb_APB();
 
     APB_Master U_APB_Master(.*);
 
-    APB_Slave U_APB_Slave0 (
+    RAM U_APB_RAM (
         .*,
+        .PADDR(PADDR[11:0]),
         .PSEL(PSEL0),
         .PRDATA(PRDATA0),
         .PREADY(PREADY0)
     );
+
     APB_Slave U_APB_Slave1 (
         .*,
         .PSEL(PSEL1),
         .PRDATA(PRDATA1),
         .PREADY(PREADY1)
     );
+    
     APB_Slave U_APB_Slave2 (
         .*,
         .PSEL(PSEL2),
         .PRDATA(PRDATA2),
         .PREADY(PREADY2)
-    );
-    RAM U_APB_RAM (
-        .*,
-        .PSEL(PSEL3),
-        .PRDATA(PRDATA3),
-        .PREADY(PREADY3)
     );
 
     always #5 PCLK = ~PCLK;
@@ -63,20 +60,42 @@ module tb_APB();
         PRESET = 1'b0;
     end
 
-    initial begin
-        #10;
-
-        // slave 0, 1, 2, 3 write test
+    task automatic apb_write(input logic [31:0] apb_addr, input logic [31:0] apb_wdata);
         @(posedge PCLK);
         #1;
         transfer = 1;
         write = 1;
-        addr = 32'h1000_0000; 
-        wdata = 32'd10;
+        addr = apb_addr; 
+        wdata = apb_wdata;
         @(posedge PCLK);
         #1;
         transfer = 0;
         wait (ready);
+    endtask 
+
+    task automatic apb_read(input logic [31:0] apb_addr);
+        @(posedge PCLK);
+        #1;
+        transfer = 1;
+        write = 0;
+        addr = apb_addr; 
+        @(posedge PCLK);
+        #1;
+        transfer = 0;
+        wait (ready);
+    endtask 
+
+    initial begin
+        #10;
+
+        apb_write(32'h1000_0000, 32'd1);
+        apb_write(32'h1000_0004, 32'd2);
+        apb_write(32'h1000_0008, 32'd3);
+
+        apb_read(32'h1000_0000);
+        apb_read(32'h1000_0004);
+        apb_read(32'h1000_0008);
+        
 
         @(posedge PCLK);
         #1;

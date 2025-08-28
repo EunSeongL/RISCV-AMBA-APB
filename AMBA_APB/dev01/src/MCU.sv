@@ -1,8 +1,11 @@
 `timescale 1ns / 1ps
 
 module MCU (
-    input logic clk,
-    input logic reset
+    input  logic clk,
+    input  logic reset,
+    input  logic [7:0] gpi,
+    output logic [7:0] gpo,
+    inout  logic [7:0] gpio
 );
     wire         PCLK = clk;
     wire         PRESET = reset;
@@ -13,19 +16,19 @@ module MCU (
     logic [31:0] PWDATA;
 
     logic        PSEL_RAM;
-    logic        PSEL1;
-    logic        PSEL2;
-    logic        PSEL3;
+    logic        PSEL_GPO;
+    logic        PSEL_GPI;
+    logic        PSEL_GPIO;
 
     logic [31:0] PRDATA_RAM;
-    logic [31:0] PRDATA1;
-    logic [31:0] PRDATA2;
-    logic [31:0] PRDATA3;
+    logic [31:0] PRDATA_GPO;
+    logic [31:0] PRDATA_GPI;
+    logic [31:0] PRDATA_GPIO;
 
     logic        PREADY_RAM;
-    logic        PREADY1;
-    logic        PREADY2;
-    logic        PREADY3;
+    logic        PREADY_GPO;
+    logic        PREADY_GPI;
+    logic        PREADY_GPIO;
     // Internal Interface Signals
     logic        transfer;
     logic        ready;
@@ -53,16 +56,50 @@ module MCU (
 
     CPU_RV32I U_RV32I (.*);
 
-    RAM U_APB_RAM (.*,
+    RAM U_APB_RAM (
+        .*,
         .PADDR(PADDR[11:0]),
         .PSEL(PSEL_RAM),
         .PRDATA(PRDATA_RAM),
         .PREADY(PREADY_RAM)
     );
 
-    APB_Master U_APB_Master(.*,
+    APB_Master U_APB_Master(
+        .*,
         .PSEL0(PSEL_RAM),
+        .PSEL1(PSEL_GPO),
+        .PSEL2(PSEL_GPI),
+        .PSEL3(PSEL_GPIO),
+        
         .PRDATA0(PRDATA_RAM),
-        .PREADY0(PREADY_RAM)
-        );
+        .PRDATA1(PRDATA_GPO),
+        .PRDATA2(PRDATA_GPI),
+        .PRDATA3(PRDATA_GPIO),
+        
+        .PREADY0(PREADY_RAM),
+        .PREADY1(PREADY_GPO),
+        .PREADY2(PREADY_GPI),
+        .PREADY3(PREADY_GPIO)
+    );
+
+    GPO_Periph U_GPO_Periph (
+        .*,
+        .PSEL(PSEL_GPO),
+        .PRDATA(PRDATA_GPO),
+        .PREADY(PREADY_GPO)
+    );
+
+    GPI_Periph U_GPI_Periph (
+        .*,
+        .PSEL(PSEL_GPI),
+        .PRDATA(PRDATA_GPI),
+        .PREADY(PREADY_GPI)
+    );
+
+    GPIO_Periph U_GPIOA (
+        .*,
+        .PSEL(PSEL_GPIO),
+        .PRDATA(PRDATA_GPIO),
+        .PREADY(PREADY_GPIO)
+    );
 endmodule
