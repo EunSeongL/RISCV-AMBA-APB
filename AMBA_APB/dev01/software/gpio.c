@@ -13,7 +13,7 @@
 #define GPIO_ODR   *(uint32_t *)(GPIO_BASE + 0x08)
 
 void delay(uint32_t t);
-
+                            
 int main()
 {
     enum{LEFT, RIGHT};
