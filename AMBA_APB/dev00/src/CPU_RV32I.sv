@@ -12,6 +12,7 @@ module CPU_RV32I (
     output logic        transfer,
     input  logic        ready
 );
+
     logic       PCEn;
     logic       regFileWe;
     logic [3:0] aluControl;
@@ -22,5 +23,7 @@ module CPU_RV32I (
     logic       jalr;
 
     ControlUnit U_ControlUnit (.*);
+
     DataPath U_DataPath (.*);
+
 endmodule

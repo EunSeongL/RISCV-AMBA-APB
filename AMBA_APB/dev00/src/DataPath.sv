@@ -35,7 +35,7 @@ module DataPath (
     assign instrMemAddr = PCOutData;
     assign busAddr = ExeReg_aluResult;
     assign busWData = ExeReg_RFData2;
-
+    
     RegisterFile U_RegFile (
         .clk(clk),
         .we (regFileWe),
@@ -154,6 +154,7 @@ module DataPath (
         .q    (ExeReg_PCSrcMuxOut)
     );
 
+    
     registerEn U_PC (
         .clk  (clk),
         .reset(reset),
@@ -161,6 +162,7 @@ module DataPath (
         .d    (ExeReg_PCSrcMuxOut),
         .q    (PCOutData)
     );
+    
 
 endmodule
 

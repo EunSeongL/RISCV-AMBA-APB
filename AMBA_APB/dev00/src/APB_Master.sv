@@ -134,6 +134,7 @@ module APB_Master(
         .ready      (ready)
     ); 
 
+
 endmodule
 
 module APB_Decoder (
@@ -175,10 +176,10 @@ module APB_Mux (
     input  logic [31:0] rdata1,
     input  logic [31:0] rdata2,
     input  logic [31:0] rdata3,
-    input  logic [31:0] ready0,
-    input  logic [31:0] ready1,
-    input  logic [31:0] ready2,
-    input  logic [31:0] ready3,
+    input  logic        ready0,
+    input  logic        ready1,
+    input  logic        ready2,
+    input  logic        ready3,
     output logic [31:0] rdata,
     output logic        ready
     ); 

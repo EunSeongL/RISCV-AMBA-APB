@@ -3,7 +3,6 @@
 module RAM (
     // global signals
     input  logic        PCLK,
-    input  logic        PRESET,
     // APB Interface signals
     input  logic [31:0] PADDR,
     input  logic        PWRITE,
@@ -24,11 +23,14 @@ module RAM (
             if(PWRITE) begin
                 mem[PADDR[11:2]] <= PWDATA;
             end
+            
             else begin
                 PRDATA <= mem[PADDR[11:2]];
             end
+            
         end
     end
 
+    //assign PRDATA = mem[PADDR[11:2]];
 
 endmodule
