@@ -18,17 +18,17 @@ module MCU (
     logic        PSEL_RAM;
     logic        PSEL_GPO;
     logic        PSEL_GPI;
-    logic        PSEL_GPIO;
+    logic        PSEL_GPIOA;
 
     logic [31:0] PRDATA_RAM;
     logic [31:0] PRDATA_GPO;
     logic [31:0] PRDATA_GPI;
-    logic [31:0] PRDATA_GPIO;
+    logic [31:0] PRDATA_GPIOA;
 
     logic        PREADY_RAM;
     logic        PREADY_GPO;
     logic        PREADY_GPI;
-    logic        PREADY_GPIO;
+    logic        PREADY_GPIOA;
     // Internal Interface Signals
     logic        transfer;
     logic        ready;
@@ -69,17 +69,17 @@ module MCU (
         .PSEL0(PSEL_RAM),
         .PSEL1(PSEL_GPO),
         .PSEL2(PSEL_GPI),
-        .PSEL3(PSEL_GPIO),
+        .PSEL3(PSEL_GPIOA),
         
         .PRDATA0(PRDATA_RAM),
         .PRDATA1(PRDATA_GPO),
         .PRDATA2(PRDATA_GPI),
-        .PRDATA3(PRDATA_GPIO),
+        .PRDATA3(PRDATA_GPIOA),
         
         .PREADY0(PREADY_RAM),
         .PREADY1(PREADY_GPO),
         .PREADY2(PREADY_GPI),
-        .PREADY3(PREADY_GPIO)
+        .PREADY3(PREADY_GPIOA)
     );
 
     GPO_Periph U_GPO_Periph (
@@ -98,8 +98,8 @@ module MCU (
 
     GPIO_Periph U_GPIOA (
         .*,
-        .PSEL(PSEL_GPIO),
-        .PRDATA(PRDATA_GPIO),
-        .PREADY(PREADY_GPIO)
+        .PSEL(PSEL_GPIOA),
+        .PRDATA(PRDATA_GPIOA),
+        .PREADY(PREADY_GPIOA)
     );
 endmodule

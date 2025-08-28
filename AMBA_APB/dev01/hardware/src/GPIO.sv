@@ -89,8 +89,8 @@ module GPIO (
     genvar i;
     generate
         for(i = 0; i < 8; i++) begin
-            assign gpio[0] =  cr[0] ? odr[0] : 1'bz;
-            assign idr[0]  = ~cr[0] ? gpio[0] : 1'bz;
+            assign gpio[i] =  cr[i] ? odr[i] : 1'bz;
+            assign idr[i]  = ~cr[i] ? gpio[i] : 1'bz;
         end    
     endgenerate
 
