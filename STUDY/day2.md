@@ -113,7 +113,7 @@ Front          Back
 |  |  | scoreboard | | generator  |  |  |
 |  |  | pass  fail | | input data |  |  |
 |  |  +------------+ +------------+  |  |
-|  |        ▲              ▼         |  |
+|  |        ▲              ▼ stimulus|  |
 |  |  +------------+ +------------+  |  |
 |  |  | monitor    | | driver     |  |  |
 |  |  +------------+ +------------+  |  |
