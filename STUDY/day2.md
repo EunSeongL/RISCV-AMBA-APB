@@ -59,8 +59,29 @@ byte arr1[]      // 2-state byte 선언
 arr1 = new[4];   // 2-state byte 4개
 
 int  arr2[]      // 2-state 32bit
-arr2 = new[16]   // 2-state int 16개, new : 동적 메모리 할당
+arr2 = new[16]   // 2-state int 16개, new : 동적 메모리 할당 후 (삭제, 변경 기능 있음)
 ```
+
+### 큐 Type (Queue FIFO)
+
+```verilog
+bit que[$]
+int que1[$]
+que.push_back(1);
+que.push_front(4);
+que.pop_back();
+que.pop_front();
+
+```
+
+```
+Front          Back
+┌─────┬─────┬─────┬─────┬─────┐
+│  1  │  2  │  3  │     │     │ ← 1, 2, 3
+└─────┴─────┴─────┴─────┴─────┘
+← 1, 2, 3         
+```
+
 
 ### 메모리 구조 
 
