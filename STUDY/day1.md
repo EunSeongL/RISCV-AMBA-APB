@@ -94,7 +94,6 @@ char y = *(char*)(0x4001);  // Port B의 값 읽기
 ### AMBA AHB Block Diagram
 ![alt text](img/ambabd.png)
 
-
 ---
 
 ## AMBA APB
