@@ -47,7 +47,7 @@ int *pA; => pA는 주소를 받는 변수
 char *pB; => pB는 4Byte, *pB는 1Byte
 
 int **ppA => ppA = &pA => 0x10001000
-int *pA => pa = &A => 0x10000000
+int *pA => pA = &A => 0x10000000
 int *A
 
 **ppA = 10
