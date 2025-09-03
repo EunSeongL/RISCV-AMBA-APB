@@ -1,8 +1,5 @@
 #include <stdint.h>
 
-void FND_init(FND_TypeDef *fnd);
-void FND_WriteData(FND_TypeDef * fnd, uint32_t d);
-
 void delay(uint32_t t);
 
 typedef struct
@@ -13,9 +10,12 @@ typedef struct
 
 #define APB_BASE  0x10000000
 #define FND_BASE  (APB_BASE + 0x4000)
-#define FND_CR    *(uint32_t *)(FND_BASE + 0x00)
-#define FND_FDR   *(uint32_t *)(FND_BASE + 0x04)
 #define FND       ((FND_TypeDef *)(FND_BASE))
+// #define FND_CR    *(uint32_t *)(FND_BASE + 0x00)
+// #define FND_FDR   *(uint32_t *)(FND_BASE + 0x04)
+
+void FND_init(FND_TypeDef *fnd);
+void FND_WriteData(FND_TypeDef *fnd, uint32_t d);
 
 int main()
 {
