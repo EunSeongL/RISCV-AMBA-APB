@@ -22,7 +22,7 @@ int main()
     // FND_CR = 0x01;
     // FND_FDR = 1234;
 
-    //FND -> CR = 0x01;
+    // FND -> CR = 0x01;
     // FND -> FDR = 1234;
 
     FND_init(FND);
