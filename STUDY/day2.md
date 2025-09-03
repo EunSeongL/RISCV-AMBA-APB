@@ -131,4 +131,95 @@ Front          Back
 +---------------------------------------+
 ```
 
-### 
+### MailBox
+- generator와 driver 사이에 공유메모리 mailbox를 사용
+- mailbox는 FIFO, Queue이다.
+
+### LAB
+
+```verilog
+// transaction => 데이터의 묶음 generator내부
+class transaction;
+    rand bit [7:0] a;
+    rand bit [7:0] b;
+endclass //transaction
+
+class generator;
+    transaction tr;
+    
+    function new();      
+    endfunction //new()
+
+    task run(int run_count);
+        repeat(run_count) begin
+           tr = new(); // make instance (realized) heap memory영역에 class 자료형을 만든다
+           tr.randomize();
+        end
+    endtask 
+
+endclass //generator
+```
+
+```verilog
+module tb_adder();              // 
+    environment env;            // class
+    adder_intf  adder_if();     // H/W (memory 가 아니다.)
+    adder dut (                 // H/W
+        .a      (adder_if.a),
+        .b      (adder_if.b),
+        .result (adder_if.result)
+    );
+
+    initial begin
+        env = new(adder_if);   // new(virtual adder_intf adder_if = adder_if)
+        env.run();
+    end
+endmodule
+```
+
+```verilog
+class environment;
+    generator gen;
+    driver drv;
+    mailbox #(transaction) gen2drv_mbox;
+
+    function new(virtual adder_intf adder_if);  // virtual H/W를 S/W처럼 사용, 가상 Interface
+        gen2drv_mbox = new();
+        gen = new(gen2drv_mbox);
+        drv = new(gen2drv_mbox, adder_if);      // 실제 H/W 정보 입력
+
+    endfunction //new()
+
+    task run();
+        fork
+            gen.run(20);
+            drv.run();
+        join_any
+        #100; $finish();
+    endtask //run
+
+endclass //environment
+```
+
+> driver
+```verilog
+class driver;
+    transaction tr;
+    virtual adder_intf adder_if;
+    mailbox #(transaction) gen2drv_mbox;
+
+    function new(mailbox #(transaction) gen2drv_mbox, virtual adder_intf adder_if);
+        this.gen2drv_mbox = gen2drv_mbox;
+        this.adder_if = adder_if;
+    endfunction //new()
+
+    task run();
+        forever begin
+            gen2drv_mbox.get(tr);
+            adder_if.a = tr.a;
+            adder_if.b = tr.b;
+        end
+    endtask
+
+endclass //driver
+```
