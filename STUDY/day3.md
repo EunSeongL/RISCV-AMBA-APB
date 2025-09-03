@@ -38,3 +38,16 @@ typedef struct
 ((FND_TypeDef *) (0x10004000)) -> CR = 0x01 => 주소 안의 메모리 공간 
 ```
 
+포인터 변수는 주소를 가리키는 변수 
+
+주소가 4Byte일 때,
+
+int *pA; => pA는 주소를 받는 변수
+
+char *pB; => pB는 4Byte, *pB는 1Byte
+
+int **ppA => ppA = &pA => 0x10001000
+int *pA => pa = &A => 0x10000000
+int *A
+
+**ppA = 10
