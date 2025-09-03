@@ -1,5 +1,8 @@
 #include <stdint.h>
 
+void FND_init(FND_TypeDef *fnd);
+void FND_WriteData(FND_TypeDef * fnd, uint32_t d);
+
 void delay(uint32_t t);
 
 typedef struct
@@ -19,18 +22,32 @@ int main()
     // FND_CR = 0x01;
     // FND_FDR = 1234;
 
-    FND -> CR = 0x01;
+    //FND -> CR = 0x01;
     // FND -> FDR = 1234;
 
+    FND_init(FND);
+    
     uint32_t data = 0;
 
     while(1)
     {
-        FND->FDR = data;
+        // FND -> FDR = data;
+
+        FND_WriteData(FND, data);
         data++;
         delay(1000);
     }
     return 0;
+}
+
+void FND_init(FND_TypeDef *fnd)
+{
+    fnd->CR = 0x01;
+}
+
+void FND_WriteData(FND_TypeDef * fnd, uint32_t d)
+{
+    fnd->FDR = d;
 }
 
 void delay(uint32_t t)
