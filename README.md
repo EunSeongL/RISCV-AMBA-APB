@@ -86,6 +86,6 @@ Mailbox : Generator ↔ Driver, Monitor ↔ Scoreboard 사이에서 데이터를
 ```
 
 <details>
-    <summary> 📝 SystemVerilog Verification </summary>
+    <summary> 📝 Verification Structure </summary>
     <img width="850" height="500" alt="image" src="./img/Verification_Structure.png">
 </details>
