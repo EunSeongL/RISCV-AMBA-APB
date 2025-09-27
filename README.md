@@ -74,7 +74,9 @@
 
 ## SystemVerilog Verification
 
+> SystemVerilog 기반 Verification Testbench 구조를 통해 DUT에 대한 검증을 진행하였습니다.
+
 <details>
     <summary> 📝 SystemVerilog Verification </summary>
-    <img width="850" height="450" alt="image" src="./img/Verification_Structure.png">
+    <img width="850" height="500" alt="image" src="./img/Verification_Structure.png">
 </details>
