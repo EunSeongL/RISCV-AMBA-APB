@@ -74,12 +74,12 @@
 
 ## SystemVerilog Verification
 
-> SystemVerilog 기반 Verification Testbench 구조를 통해 DUT에 대한 검증을 진행하였습니다.
-Generator : 랜덤 입력 데이터(트랜잭션)를 생성
-Driver : 생성된 랜덤 입력 데이터를 실제 DUT에 전달
-Interface : Driver/Monitor와 DUT를 연결하는 신호 인터페이스
-Monitor : DUT의 출력 동작을 관찰해서 트랜잭션 형태로 저장
-Scoreboard : Monitor에서 수집한 값과 기대값(Reference Model)을 비교하여 DUT가 제대로 동작하는지 검증
+> SystemVerilog 기반 Verification Testbench 구조를 통해 DUT에 대한 검증을 진행하였습니다.<br>
+Generator : 랜덤 입력 데이터(트랜잭션)를 생성<br>
+Driver : 생성된 랜덤 입력 데이터를 실제 DUT에 전달<br>
+Interface : Driver/Monitor와 DUT를 연결하는 신호 인터페이스<br>
+Monitor : DUT의 출력 동작을 관찰해서 트랜잭션 형태로 저장<br>
+Scoreboard : Monitor에서 수집한 값과 기대값(Reference Model)을 비교하여 DUT가 제대로 동작하는지 검증<br>
 Mailbox : Generator ↔ Driver, Monitor ↔ Scoreboard 사이에서 데이터를 안전하게 전달하는 통신 채널
 
 <details>
