@@ -60,27 +60,14 @@ uint32_t UART_ReceiveData(UART_TypeDef * uart);
 int main()
 {
 
-    //FND_Init(FND);
     UART_Init(UART);
-
-    //uint32_t fnd_data = 0;
     uint32_t uart_data = 0;
     uint32_t baudrate = 9600;
-
-/*
-    while(1)
-    {
-      FND_WriteData(FND, fnd_data);
-      fnd_data++;
-      delay(1000);  
-    }
-*/
 
     UART_SetBaudrate(UART, baudrate);
 
     while(1)
     {
-        // Loop Back for test
         uart_data = UART_ReceiveData(UART);
         delay(10);
         UART_SendData(UART, uart_data);
@@ -88,18 +75,6 @@ int main()
 
     return 0;
 }
-
-/*
-void FND_Init(FND_TypeDef *fnd)
-{
-    fnd->CR = 0x01;
-}
-
-void FND_WriteData(FND_TypeDef * fnd, uint32_t d)
-{
-    fnd->FDR = d;
-}
-*/
 
 void delay(uint32_t t)
 {
