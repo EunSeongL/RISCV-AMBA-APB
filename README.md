@@ -3,7 +3,7 @@
 ![alt text](img/AMBA_APB_BD.png)
 
 ## 프로젝트 개요
-> 직접 설계한 RISC-V RV32I CPU에 AMBA APB 버스를 기반으로 다양한 Peripheral 기능을 추가하고자 하였습니다.
+> 직접 설계한 RISC-V RV32I CPU에 AMBA Peripheral BUS를 기반으로 다양한 Peripheral 기능을 추가하고자 하였습니다.
 ## 개발 일정
 
 | 구분                  | 8.27 | 8.28 | 8.29 | 8.30 | 8.31 | 9.1 |
