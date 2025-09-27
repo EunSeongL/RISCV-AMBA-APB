@@ -90,6 +90,65 @@ Mailbox : Generator ↔ Driver, Monitor ↔ Scoreboard 사이에서 데이터를
     <img width="850" height="500" alt="image" src="./img/Verification_Structure.png">
 </details>
 
+> C 언어로 작성한 코드를 RV32I용 어셈블리어 -> 머신코드로 변환한 후, 해당 머신코드를 ROM에 탑재하여 CPU에서 정상적으로 동작하는 것을 확인하였습니다.<br>
+
+<details>
+    <summary> 📝 FND C Code </summary>
+
+```c
+#include <stdint.h>
+
+void delay(uint32_t t);
+
+typedef struct
+{
+    uint32_t CR;
+    uint32_t FDR;
+} FND_TypeDef;
+
+#define APB_BASE  0x10000000
+#define FND_BASE  (APB_BASE + 0x4000)
+#define FND       ((FND_TypeDef *)(FND_BASE))
+
+void FND_init(FND_TypeDef *fnd);
+void FND_WriteData(FND_TypeDef *fnd, uint32_t d);
+
+int main()
+{
+    FND_init(FND);
+    
+    uint32_t data = 0;
+
+    while(1)
+    {
+        FND_WriteData(FND, data);
+        data++;
+        delay(1000);
+    }
+    return 0;
+}
+
+void FND_init(FND_TypeDef *fnd)
+{
+    fnd->CR = 0x01;
+}
+
+void FND_WriteData(FND_TypeDef * fnd, uint32_t d)
+{
+    fnd->FDR = d;
+}
+
+void delay(uint32_t t)
+{
+    for (int i = 0; i < t; i++){
+        for(int j = 0; j < 1000; j++);
+    }
+}
+
+```
+
+</details>
+
 ## 📽️ 동작영상
 
 <div align="center">
