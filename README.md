@@ -28,9 +28,9 @@
 | :---: | :---: |
 |<img width="450" height="250" alt="image" src="./img/Write transfer with no wait states .png">|<img width="450" height="250" alt="image" src="./img/Read transfer timing diagram.png">|
 
-<center>
+<div align="center">
     <img width="300" height="300" alt="image" src="./img/state.png">
-</center>
+</div>
 
 ## Memory Map
 
