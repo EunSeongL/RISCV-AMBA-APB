@@ -22,8 +22,9 @@
 | **Language** | ![Verilog](https://img.shields.io/badge/Verilog-5C2D91?style=for-the-badge&logoColor=white) ![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white) |
 | **EDA**   | ![Vivado](https://img.shields.io/badge/Xilinx%20Vivado-FFB500?style=for-the-badge&logo=xilinx&logoColor=white) |
 
-![alt text](image.png)
-  
+
+## Memory Map
+
 <details>
     <summary> 📝 Memory Map</summary>
     <img width="850" height="550" alt="image" src="./img/Memory_Map.png">
