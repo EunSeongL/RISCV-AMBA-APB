@@ -94,12 +94,12 @@ Mailbox : Generator ↔ Driver, Monitor ↔ Scoreboard 사이에서 데이터를
 
 <details>
     <summary> 📝 FND C Code </summary>
-    [🚀[FND C CODE]](/RISCV-AMBA-APB/AMBA_APB/dev03/software/peri_fnd.c)<br>
+    [🚀[FND C CODE]](./AMBA_APB/dev03/software/peri_fnd.c)<br>
 </details>
 
 <details>
     <summary> 📝 UART C Code </summary>
-    [🚀[UART C CODE]](/RISCV-AMBA-APB/AMBA_APB/dev03/software/peri_uart.c)<br>
+    [🚀[UART C CODE]](./AMBA_APB/dev03/software/peri_uart.c)<br>
 </details>
 
 ## 📽️ 동작영상
