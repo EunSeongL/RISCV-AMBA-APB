@@ -33,6 +33,19 @@
     State Diagram
 </div>
 
+| 신호      | 방향 | 설명 |
+| :---: | :---: | :---: |
+| PCLK      | 입력 | 시스템 클록 신호 |
+| PRESETn   | 입력 | 비활성화 시 시스템 리셋 |
+| PADDR     | 출력 | 32비트 주소 버스 |
+| PSELx     | 출력 | 슬레이브 선택 신호 |
+| PENABLE   | 출력 | 두 번째 및 이후 사이클에서 활성화 |
+| PWRITE    | 출력 | HIGH: 쓰기, LOW: 읽기 |
+| PWDATA    | 출력 | 쓰기 데이터 (PWRITE가 HIGH일 때) |
+| PRDATA    | 입력 | 읽기 데이터 (PWRITE가 LOW일 때) |
+| PREADY    | 입력 | 슬레이브가 전송 완료를 알리는 신호 |
+| PSLVERR   | 입력 | 전송 오류를 알리는 신호 |
+
 ## Memory Map
 
 <details>
@@ -94,7 +107,7 @@ Mailbox : Generator ↔ Driver, Monitor ↔ Scoreboard 사이에서 데이터를
 
 <details>
   <summary>📝 FND C Code</summary>
-  
+
   [🚀 FND C CODE](./AMBA_APB/dev03/software/peri_fnd.c)
 </details>
 
