@@ -24,7 +24,9 @@
 
 ## APB (AMBA Peripheral Bus)
 
-> ARM 사의 AMBA APB 데이터시트를 참고하여 SETUP과 ACCESS 사이클을 포함한 전송 타이밍을 설계하고 구현하였습니다.
+> ARM 사의 AMBA APB 데이터시트를 참고하여 SETUP과 ACCESS 사이클을 포함한 전송 타이밍을 분석하고 구현하였습니다.
+
+[📝 AMBA APB Protocol Spec](./Document/amba_apb_protocol_spec.pdf)
 
 |**Write transfer with no wait states** | **Read transfer timing diagram** |
 | :---: | :---: |
