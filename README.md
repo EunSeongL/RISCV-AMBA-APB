@@ -25,8 +25,8 @@
 ## APB (AMBA Peripheral Bus)
 
 ```
-AMBA Peripheral Bus는 ARM의 AMBA(Advanced Microcontroller Bus Architecture) 사양에 기반한 저전력, 저속 주변 장치 인터페이스  
-주로 RISC-V RV32I와 같은 CPU와 주변 장치에 사용. 복잡한 파이프라이닝 없이 간단한 동기식 프로토콜을 제공한다.
+AMBA Peripheral Bus는 ARM의 AMBA(Advanced Microcontroller Bus Architecture) 사양에 기반한 저전력, 저속 주변 
+장치 인터페이스 주로 RISC-V RV32I와 같은 CPU와 주변 장치에 사용. 복잡한 파이프라이닝 없이 간단한 동기식 프로토콜을 제공한다.
 ```
 
 |**Write transfer with no wait states** | **Read transfer timing diagram** |
