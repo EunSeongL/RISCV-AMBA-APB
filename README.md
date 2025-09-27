@@ -29,14 +29,14 @@
 |<img width="450" height="250" alt="image" src="./img/Write transfer with no wait states .png">|<img width="450" height="250" alt="image" src="./img/Read transfer timing diagram.png">|
 
 <div align="center">
-    <img width="300" height="300" alt="image" src="./img/state.png">
+    <img width="300" height="300" alt="image" src="./img/state.png"><br>
+    State Diagram
 </div>
 
 ## Memory Map
 
 <details>
     <summary> 📝 Memory Map</summary>
-    - State Diagram
     <img width="850" height="550" alt="image" src="./img/Memory_Map.png">
 </details>
 
