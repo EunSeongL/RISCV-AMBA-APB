@@ -93,5 +93,7 @@ Mailbox : Generator ↔ Driver, Monitor ↔ Scoreboard 사이에서 데이터를
 ## 📽️ 동작영상
 
 <div align="center">
-    ![FND](<img/fnd.mp4>)
+  <video width="500" height="300" controls autoplay loop muted>
+    <source src="img/fnd.mp4" type="video/mp4">
+  </video>
 </div>
