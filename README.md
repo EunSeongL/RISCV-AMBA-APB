@@ -93,14 +93,15 @@ Mailbox : Generator ↔ Driver, Monitor ↔ Scoreboard 사이에서 데이터를
 > C 언어로 작성한 코드를 RV32I용 어셈블리어 -> 머신코드로 변환한 후, 해당 머신코드를 ROM에 탑재하여 CPU에서 정상적으로 동작하는 것을 확인하였습니다.<br>
 
 <details>
-    <summary> 📝 FND C Code </summary>
-    [🚀[FND C CODE]](./AMBA_APB/dev03/software/peri_fnd.c)<br>
+  <summary>📝 FND C Code</summary>
+  [🚀 FND C CODE](./AMBA_APB/dev03/software/peri_fnd.c)
 </details>
 
 <details>
-    <summary> 📝 UART C Code </summary>
-    [🚀[UART C CODE]](./AMBA_APB/dev03/software/peri_uart.c)<br>
+  <summary>📝 UART C Code</summary>
+  [🚀 UART C CODE](./AMBA_APB/dev03/software/peri_uart.c)
 </details>
+
 
 ## 📽️ 동작영상
 
