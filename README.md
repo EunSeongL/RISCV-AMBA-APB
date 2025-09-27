@@ -36,6 +36,7 @@
 
 <details>
     <summary> 📝 Memory Map</summary>
+    - State Diagram
     <img width="850" height="550" alt="image" src="./img/Memory_Map.png">
 </details>
 
