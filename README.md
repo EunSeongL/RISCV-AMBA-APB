@@ -74,4 +74,7 @@
 
 ## SystemVerilog Verification
 
-![alt text](img/Verification_Structure.png) 
+<details>
+    <summary> 📝 Memory Map</summary>
+    <img width="850" height="450" alt="image" src="./img/Verification_Structure.png">
+</details>
