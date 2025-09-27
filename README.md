@@ -1,4 +1,4 @@
-# RISCV-AMBA-APB
+# RISC-V RV32I AMBA Peripheral BUS
 
 ![alt text](img/AMBA_APB_BD.png)
 
