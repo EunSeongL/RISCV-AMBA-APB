@@ -89,3 +89,9 @@ Mailbox : Generator ↔ Driver, Monitor ↔ Scoreboard 사이에서 데이터를
     <summary> 📝 Verification Structure </summary>
     <img width="850" height="500" alt="image" src="./img/Verification_Structure.png">
 </details>
+
+## 📽️ 동작영상
+
+<div align="center">
+    ![FND](<img/fnd.mp4>)
+</div>
