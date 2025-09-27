@@ -37,37 +37,37 @@
 
 <details>
     <summary> 📝 Memory Map</summary>
-    <img width="850" height="550" alt="image" src="./img/Memory_Map.png">
+    <img width="850" height="450" alt="image" src="./img/Memory_Map.png">
 </details>
 
 ## Peripheral Block Diagram
 
 <details>
     <summary> 🔖 RAM </summary>
-    <img src="./img/APB_RAM.png" width=450 height=300>
+    <img src="./img/APB_RAM.png" width=550 height=400>
 </details>
 
 <details>
     <summary> 🔖 GPO </summary>
-    <img src="./img/APB_GPO.png" width=450 height=300>
+    <img src="./img/APB_GPO.png" width=450 height=400>
 </details>
 
 <details>
     <summary> 🔖 GPI </summary>
-    <img src="./img/APB_GPI.png" width=450 height=300>
+    <img src="./img/APB_GPI.png" width=450 height=400>
 </details>
 
 <details>
     <summary> 🔖 GPIO </summary>
-    <img src="./img/APB_GPIO.png" width=450 height=300>
+    <img src="./img/APB_GPIO.png" width=450 height=400>
 </details>
 
 <details>
     <summary> 🔖 FND </summary>
-    <img src="./img/APB_FND.png" width=450 height=300>
+    <img src="./img/APB_FND.png" width=450 height=400>
 </details>
 
 <details>
     <summary> 🔖 UART </summary>
-    <img src="./img/APB_UART.png" width=450 height=300>
+    <img src="./img/APB_UART.png" width=450 height=400>
 </details>
